@@ -1,0 +1,14 @@
+﻿numpy
+pandas
+scikit-learn
+opencv-python
+matplotlib
+seaborn
+torch
+torchvision
+jupyter
+scipy
+joblib
+streamlit
+gradio
+kaggle

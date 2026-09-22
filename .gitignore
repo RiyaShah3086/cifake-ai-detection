@@ -1,0 +1,18 @@
+﻿# Large Dataset & Weights
+data/
+saved_models/
+
+# Virtual Environment
+venv/
+.venv/
+env/
+
+# Python Cache & Jupyter
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# OS/IDE Artifacts
+.vscode/
+.idea/
+.DS_Store
