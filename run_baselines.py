@@ -14,7 +14,7 @@ from src.features import process_batch
 
 ROOT_DIR = Path.cwd()
 # Change this inside run_baselines.py:
-DATA_DIR = Path.cwd() / "data" / "raw"  # Ensure this points to the folder containing train/ test/
+RAW_DATA_DIR = ROOT_DIR / "data" / "raw" # Ensure this points to the folder containing train/ test/
 SAVED_MODELS_DIR = ROOT_DIR / "saved_models"
 SAVED_MODELS_DIR.mkdir(parents=True, exist_ok=True)
 
