@@ -5,7 +5,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
-from src.models import BaselineCNN
+from src.models import CustomCNN
 
 def train_cnn():
     # 1. Hardware acceleration setup
@@ -40,7 +40,7 @@ def train_cnn():
     print(f"Loaded {len(train_dataset)} training images and {len(test_dataset)} testing images.")
 
     # 5. Initialize Model, Loss, & Optimizer
-    model = BaselineCNN().to(device)
+    model = CustomCNN().to(device)
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE)
 
