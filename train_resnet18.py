@@ -4,6 +4,7 @@ from pathlib import Path
 import torch
 import torch.nn as nn
 import torch.optim as optim
+from src.models import get_resnet18
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms, models
 
@@ -43,15 +44,10 @@ def train_resnet18():
 
     print(f"Loaded {len(train_dataset)} training images and {len(test_dataset)} testing images.")
 
-    # 5. Initialize Pre-trained ResNet18 & Modify Classification Head
-    print("Loading pre-trained ResNet18 backbone...")
-    weights = models.ResNet18_Weights.DEFAULT
-    model = models.resnet18(weights=weights)
-
-    # Replace the final fully connected layer for binary classification (REAL vs FAKE)
-    num_ftrs = model.fc.in_features
-    model.fc = nn.Linear(num_ftrs, 2)
-    model = model.to(device)
+    # 5. Initialize Pre-trained ResNet18 (Optimized for CIFAKE 32x32 images)
+    print("Loading optimized ResNet18 backbone...")
+    model = get_resnet18(num_classes=2, pretrained=True).to(device)
+    
 
     # 6. Loss & Optimizer
     criterion = nn.CrossEntropyLoss()
